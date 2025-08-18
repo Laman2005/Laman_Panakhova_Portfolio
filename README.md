@@ -26,7 +26,9 @@ I thrive at the intersection of data, algorithms, and human-centered design.
 - **Improved Fuzzy K-Means Algorithm** – Research on perceptually-aware color clustering  
 - **Face Recognition for Identity Verification** – Deep learning and computer vision-based solution  
 - **Infrastructure Risk Prediction** – Data science models for predictive analysis  
-- **Blockchain Security Testing** – Smart contract auditing and retrodrop validation  
+- **Blockchain Security Testing** – Smart contract auditing and retrodrop validation
+- **Emotion Detection Techniques Survey** – From classical to deep learning based  
+
 
 ---
 
