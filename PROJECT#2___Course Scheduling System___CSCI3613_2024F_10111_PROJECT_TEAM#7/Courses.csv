@@ -1,0 +1,16 @@
+course_id,course_name,num_students,room_type_required
+C1,Math101,20,Classroom
+C2,CS101,35,Lecture Hall
+C3,AI102,18,Classroom
+C4,ML202,44,Lecture Hall
+C5,DataSci301,48,Lecture Hall
+C6,WebDev301,16,Classroom
+C7,CloudComp202,10,Classroom
+C8,Computer Networks,40,Lecture Hall
+C9,Database Systems,18,Classroom
+C10,Programming 101,30,Classroom
+C11,CyberSecurity101,25,Classroom
+C12,Software Engineering,28,Classroom
+C13,Big Data Analytics,42,Lecture Hall
+C14,Artificial Intelligence,23,Classroom
+C15,Digital Marketing,27,Classroom
