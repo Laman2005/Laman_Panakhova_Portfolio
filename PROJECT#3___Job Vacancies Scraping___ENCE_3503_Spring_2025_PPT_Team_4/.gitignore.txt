@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+
+# Ignore all CSVs except specific ones
+*.csv
+!processed.csv
+!scraped.csv
+
+# Jupyter Notebooks and checkpoints
+*.ipynb
+.ipynb_checkpoints/
+
+# Log and temp files
+*.log
+*.tmp
+*.bak
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# ML-related
+*.pkl
+*.joblib
+models/
+checkpoints/
+
+# Pytest & test artifacts
+.pytest_cache/
+.tox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Allow important files
+!README.md
+!*.py
