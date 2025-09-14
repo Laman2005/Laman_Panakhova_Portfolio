@@ -23,6 +23,7 @@ I thrive at the intersection of data, algorithms, and human-centered design.
 ---
 
 ## 📌 Featured Work  
+- **Beyond Pixel Count: A Perceptual Taxonomy and Review of Dominant Color Extraction Algorithms** - IEEE AICT 2025 Conference 
 - **Improved Fuzzy K-Means Algorithm** – Research on perceptually-aware color clustering  
 - **Face Recognition for Identity Verification** – Deep learning and computer vision-based solution  
 - **Infrastructure Risk Prediction** – Data science models for predictive analysis  
