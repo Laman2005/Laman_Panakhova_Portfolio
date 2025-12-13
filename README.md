@@ -55,6 +55,13 @@ I thrive at the intersection of data, algorithms, and human-centered design.
 
 ---
 
+## Publication
+This work is published at IEEE AICT 2025:  
+https://ieeexplore.ieee.org/document/11268666
+
+
+
+
 ## 📫 Connect with Me  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lpanakhova16882-/)  
 📧 [laman.panakhova@gmail.com](mailto:laman.panakhova@gmail.com)  
