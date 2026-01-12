@@ -54,6 +54,28 @@ I thrive at the intersection of data, algorithms, and human-centered design.
 - Responsible & ethical AI practices  
 
 ---
+## Additionals
+
+- [Video 1](https://youtu.be/0SlvA-gn0AM)
+- [Video 2](https://youtu.be/1Hytxm4tPy8)
+- [Video 3](https://youtu.be/RnmpeX20Ans)
+- [Video 4](https://youtu.be/mp2D43D-7Qw)
+- [Video 5](https://youtu.be/uHQPdmd8LpQ)
+- [Video 6](https://youtu.be/LXBn4XDgOnk)
+- [Video 7](https://youtu.be/TLqedF3aVwQ)
+- [Video 8](https://youtu.be/qrJosSW5xnU)
+- [Video 9](https://youtu.be/Wfyn6y0LXEU)
+- [Video 10](https://youtu.be/s_ql-DCU_Q4)
+- [Video 11](https://youtu.be/kuiVyVsWsVk)
+- [Video 12](https://youtu.be/Ah6ptk4_Nu0)
+- [Video 13](https://youtu.be/0SM4bBYTTPk)
+- [Video 14](https://youtu.be/cel59o7p1ZY)
+- [YouTube Short](https://youtube.com/shorts/oPgilkVsM_8?feature=share)
+
+## Britain’s Brainiest (Azerbaijani Version)
+
+- [Britain’s Brainiest – Azerbaijani Version](https://www.youtube.com/watch?v=0_XUscxQSqk&t=2323s)
+---
 
 ## Publication
 This work is published at IEEE AICT 2025:  
