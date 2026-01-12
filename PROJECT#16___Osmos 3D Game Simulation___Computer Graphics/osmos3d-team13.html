@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- 
+    CSCI 2408 Computer Graphics Fall 2025 
+    (c)2025 by Name Surname 
+    Submitted in partial fulfillment of the requirements of the course.
+-->
+
+<!-- Video Link - https://www.instagram.com/reel/DSPygk7iAX2/?igsh=b3ppMHRlMzVjc2k= 
+ -->
+
+ <!-- This HTML file sets up the WebGL canvas and loads all required scripts
+    for the Osmos 3D game. It contains:
+
+        • <canvas> element for rendering WebGL content full-screen.
+        • Inline <script> blocks for vertex and fragment shaders.
+        • Links to helper JS libraries (webgl-utils.js, initShaders.js, MV.js).
+        • Main game script (osmos3d-team13.js) which handles rendering,
+          physics, input, and scene management.
+ -->
+
+<html style="box-sizing: border-box;">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>WebGL Team Project: Osmos 3D</title>
+<audio id="bgm" src="sounds/Osmos_Soundtrack_OST.mp3"></audio>
+<audio id="eat" src="sounds/EatSound.mp3"></audio>
+<style>
+    *, *:before, *:after {
+  box-sizing: inherit;
+  overflow: hidden;
+}
+</style>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+    // Vertex Shader for Osmos 3D
+    // Handles MVP, Lighting Prep, and Texture Coords
+
+    attribute vec4 vPosition;
+    attribute vec3 vNormal;
+    attribute vec2 vTexCoord;
+
+    // Uniforms for transformations and light source
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+    uniform mat4 normalMatrix;
+
+    // Varyings to pass data to the fragment shader
+    varying vec3 N; 
+    varying vec3 V; 
+    varying vec2 fTexCoord; 
+
+    void main() {
+        V = (modelViewMatrix * vPosition).xyz;
+        gl_Position = projectionMatrix * vec4(V, 1.0);
+        N = normalize((normalMatrix * vec4(vNormal, 0.0)).xyz);
+        fTexCoord = vTexCoord;
+    }
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+    // Fragment Shader for Osmos 3D
+    // Handles Blinn-Phong Lighting, Textures, and uses base color from JS
+
+    // Set how many bits used for float values. Will not work otherwise.
+    precision mediump float;
+
+    varying vec3 N;
+    varying vec3 V;
+    varying vec2 fTexCoord;
+
+    // Uniforms for material, lighting, texture, and size logic
+    uniform vec4 ambientProduct;
+    uniform vec4 diffuseProduct;
+    uniform vec4 specularProduct;
+    uniform float shininess;
+    uniform vec3 lightPosition;
+    uniform vec3 cameraPosition;
+    
+    uniform sampler2D textureMap;
+    
+    uniform vec4 baseColor; // A2: Base color passed directly from JS
+    uniform bool isSkybox; // A4: true if drawing the skybox
+    uniform float alphaValue; // A3: Transparency
+
+
+    void main() {
+        // --- Lighting Calculation (Req A1) ---
+        vec3 L = normalize(lightPosition - V);
+        vec3 E = normalize(cameraPosition - V);
+        vec3 H = normalize(L + E);
+
+        vec3 NN = normalize(N);
+
+        vec4 ambient = ambientProduct;
+
+        // Diffuse light component
+        float Kd = max(dot(L, NN), 0.0);
+        vec4 diffuse = Kd * diffuseProduct;
+
+        // Specular light component
+        float Ks = pow(max(dot(NN, H), 0.0), shininess);
+        vec4 specular = Ks * specularProduct;
+
+        // Prevent specular highlight on the back side
+        if (dot(L, NN) < 0.0) {
+            specular = vec4(0.0, 0.0, 0.0, 1.0);
+        }
+        
+        vec4 texColor = texture2D(textureMap, fTexCoord);
+        vec4 finalColor;
+        
+        if (isSkybox) {
+             // Skybox uses only the texture (Req A4)
+             finalColor = texColor;
+        } else {
+             // Apply lighting: Ambient * Texture + BaseColor * Diffuse + Specular
+             finalColor = ambient * texColor + baseColor * diffuse + specular; 
+             
+             // --- Alpha Blending (Req A3) ---
+             finalColor.a = alphaValue;
+        }
+
+        gl_FragColor = finalColor;
+    }
+</script>
+
+<!-- Copyright (c) <2012-2015> Ed Angel and Dave Shreiner -->
+<script type="text/javascript" src="common/webgl-utils.js"></script>
+<script type="text/javascript" src="common/initShaders.js"></script>
+<script type="text/javascript" src="common/MV.js"></script>
+<!-- Copyright (c) <2012-2015> Ed Angel and Dave Shreiner -->
+<script type="text/javascript" src="osmos3d-team13.js"></script>
+</head>
+
+<body style="background-color: #888888; margin: 0; padding: 0;">
+    <canvas id="gl-canvas" style="width: 100vw; height: 100vh;">
+        Sorry ... your browser doesn't support the HTML5 canvas element.
+    </canvas>
+</body>
+</html>
