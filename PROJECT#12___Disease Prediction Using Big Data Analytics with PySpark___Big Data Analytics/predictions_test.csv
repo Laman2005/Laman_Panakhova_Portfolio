@@ -1,0 +1,43 @@
+prognosis,label,prediction,label_name,pred_name
+Fungal infection,15.0,15.0,Fungal infection,Fungal infection
+Allergy,4.0,4.0,Allergy,Allergy
+GERD,16.0,16.0,GERD,GERD
+Chronic cholestasis,9.0,9.0,Chronic cholestasis,Chronic cholestasis
+Drug Reaction,14.0,14.0,Drug Reaction,Drug Reaction
+Peptic ulcer diseae,33.0,33.0,Peptic ulcer diseae,Peptic ulcer diseae
+AIDS,1.0,1.0,AIDS,AIDS
+Diabetes,12.0,12.0,Diabetes,Diabetes
+Gastroenteritis,17.0,17.0,Gastroenteritis,Gastroenteritis
+Bronchial Asthma,6.0,6.0,Bronchial Asthma,Bronchial Asthma
+Hypertension,23.0,23.0,Hypertension,Hypertension
+Migraine,30.0,30.0,Migraine,Migraine
+Cervical spondylosis,7.0,7.0,Cervical spondylosis,Cervical spondylosis
+Paralysis (brain hemorrhage),32.0,32.0,Paralysis (brain hemorrhage),Paralysis (brain hemorrhage)
+Jaundice,28.0,28.0,Jaundice,Jaundice
+Malaria,29.0,29.0,Malaria,Malaria
+Chicken pox,8.0,8.0,Chicken pox,Chicken pox
+Dengue,11.0,11.0,Dengue,Dengue
+Typhoid,37.0,37.0,Typhoid,Typhoid
+hepatitis A,40.0,40.0,hepatitis A,hepatitis A
+Hepatitis B,19.0,19.0,Hepatitis B,Hepatitis B
+Hepatitis C,20.0,20.0,Hepatitis C,Hepatitis C
+Hepatitis D,21.0,21.0,Hepatitis D,Hepatitis D
+Hepatitis E,22.0,22.0,Hepatitis E,Hepatitis E
+Alcoholic hepatitis,3.0,3.0,Alcoholic hepatitis,Alcoholic hepatitis
+Tuberculosis,36.0,36.0,Tuberculosis,Tuberculosis
+Common Cold,10.0,10.0,Common Cold,Common Cold
+Pneumonia,34.0,34.0,Pneumonia,Pneumonia
+Dimorphic hemmorhoids(piles),13.0,13.0,Dimorphic hemmorhoids(piles),Dimorphic hemmorhoids(piles)
+Heart attack,18.0,18.0,Heart attack,Heart attack
+Varicose veins,39.0,39.0,Varicose veins,Varicose veins
+Hypothyroidism,26.0,26.0,Hypothyroidism,Hypothyroidism
+Hyperthyroidism,24.0,24.0,Hyperthyroidism,Hyperthyroidism
+Hypoglycemia,25.0,25.0,Hypoglycemia,Hypoglycemia
+Osteoarthristis,31.0,31.0,Osteoarthristis,Osteoarthristis
+Arthritis,5.0,5.0,Arthritis,Arthritis
+(vertigo) Paroymsal  Positional Vertigo,0.0,0.0,(vertigo) Paroymsal  Positional Vertigo,(vertigo) Paroymsal  Positional Vertigo
+Acne,2.0,2.0,Acne,Acne
+Urinary tract infection,38.0,38.0,Urinary tract infection,Urinary tract infection
+Psoriasis,35.0,35.0,Psoriasis,Psoriasis
+Impetigo,27.0,27.0,Impetigo,Impetigo
+Fungal infection,15.0,8.0,Fungal infection,Chicken pox
