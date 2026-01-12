@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- 
+    Copyright (c) <2012-2015> Ed Angel and Dave Shreiner
+    Code sample for CSCI 2408 Computer Graphics 
+    (c)2022-24 by Araz Yusubov 
+    DISCLAIMER: All code examples we will look at are quick hacks intended to present working prototypes.
+    Hence they do not follow best practice of programming or software engineering.
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Week 08 - Simple example with WebGL</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    attribute vec4 vColor;
+
+    // Uniform variable to get the rotation angle
+    uniform float angle;
+
+    // Varying variable to send the color to the fragment shader
+    varying vec4 outColor;
+    
+    void main() {
+
+        // Pass the color to the fragment shader
+        outColor =vColor;
+
+        // Just use the vertex as is.
+        gl_Position = vPosition;
+
+        // Make calculations for rotating the vertex
+        float sin = sin(angle);
+        float cos = cos(angle);
+
+        // Rotate the vertex around the y-axis
+        gl_Position.z = vPosition.z * cos - vPosition.x * sin;
+        gl_Position.x = vPosition.z * sin + vPosition.x * cos;
+
+    }
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+    // Set how many bits used for float values, it won't work otherwise
+    precision mediump float;
+    // Varying variable to get color from the vertex shader
+
+    varying vec4 outColor;
+    void main() {
+        // Just use one color. 
+        // gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 );
+
+        // Use the color received from the vertex shader
+        gl_FragColor = outColor;
+    }
+</script>
+
+<script type="text/javascript" src="common/webgl-utils.js"></script>
+<script type="text/javascript" src="common/initShaders.js"></script>
+<script type="text/javascript" src="common/MV.js"></script>
+<script type="text/javascript" src="webgl-lpanakhova16882.js"></script>
+</head>
+
+<body style="background-color: #888888;">
+    <center>
+        <canvas id="gl-canvas" width="800" height="600">
+            Sorry ... your browser doesn't support the HTML5 canvas element.
+        </canvas>
+    </center>
+</body>
+</html>

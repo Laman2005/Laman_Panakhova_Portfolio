@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- 
+    Copyright (c) <2012-2015> Ed Angel and Dave Shreiner
+    Code sample for CSCI 2408 Computer Graphics 
+    (c)2022-24 by Araz Yusubov 
+    DISCLAIMER: All code examples we will look at are quick hacks intended to present working prototypes.
+    Hence they do not follow best practice of programming or software engineering.
+-->
+<html>
+    <head>
+        <title>Week 12 - Texture mapping with WebGL</title> 
+        
+        <script id="vertex-shader" type="x-shader/x-vertex">
+            attribute vec4 aPosition;
+            attribute vec4 aColor;
+            attribute vec2 aTexCoord;
+        
+            // Uniform variable to get the rotation angle
+            uniform mat4 uCTM;
+        
+            // Varying variable to send the color to the fragment shader
+            varying vec4 vColor;
+            varying vec2 vTexCoord;
+            
+            void main() {
+                // Pass the color to the fragment shader
+                vColor = aColor;
+                vTexCoord = aTexCoord;
+        
+                // Just use the vertex as is.
+                gl_Position = uCTM * aPosition;
+            }
+        </script>
+        
+        <script id="fragment-shader" type="x-shader/x-fragment">
+            // Set how many bits used for float values, it won't work otherwise
+            precision mediump float;
+        
+            // Varying variable to get color from the vertex shader
+            varying vec4 vColor;
+            varying vec2 vTexCoord;
+
+            // Uniform variable to store a texture
+            uniform sampler2D uImage0;
+        
+            void main() {
+                // Just use one color. 
+                //gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 );
+        
+                // Use the color received from the vertex shader
+                gl_FragColor = vColor;
+
+                // Use grayscale color based on the depth.
+                // The depth buffer contains depth values between 0.0 and 1.0
+                /*
+                vec4 depthColor = vec4(0.0, 0.0, 0.0, 1.0);
+                depthColor.r = gl_FragCoord.z;
+                depthColor.g = depthColor.r;
+                depthColor.b = depthColor.r;
+                gl_FragColor = depthColor;
+                */
+
+                // Use the texture
+                gl_FragColor = texture2D(uImage0, vTexCoord);
+            }
+        </script>
+        
+        <script type="text/javascript" src="common/webgl-utils.js"></script>
+        <script type="text/javascript" src="common/initShaders.js"></script>
+        <script type="text/javascript" src="common/MV.js"></script>
+
+        <script type="text/javascript" src="gl-texture-lpanakhova16882.js"></script>
+    </head>
+    <body style="background-color: #888888;">
+        <center>
+            <div style="float: none; height: 20pt; font-family: Cambria;">
+                <label for="file-open">Choose a file to open</label>
+                <input id="file-open" type="file" accept=".obj"/>
+            </div>
+            <div style="float: none; height: 20pt; font-family: Cambria;">
+                <label for="file-open-tex">Choose a texture file to open</label>
+                <input id="file-open-tex" type="file" accept="image/*"/> 
+            </div>
+            <div style="float: none; height: 20pt; font-family: Cambria;">
+                <label for="painter-toggle">Switch hidden surface removal on/off</label>
+                <input id="painter-toggle" type="checkbox" checked = "checked"/>
+            </div>
+            <div style="float: none; height: 20pt; font-family: Cambria;">
+                <label for="culling-toggle">Switch backface culling on/off</label>
+                <input id="culling-toggle" type="checkbox"/>
+            </div>
+            <div style="float: none; height: 20pt; font-family: Cambria;">
+                Press +/- for scaling up/down and arrow right/left and up/down to rotate around y- and x-axis.
+            </div>
+            <!-- <div style="float: none; height: 20pt; font-family: Cambria;">
+                <label for="proc-button">Start processing</label>
+                <button id="proc-button" type="button">Process the image</button>
+            </div> -->
+            <br>
+            <canvas id="gl-canvas" width="640" height="480">
+            Sorry ... your browser doesn't support the HTML5 canvas element.
+            </canvas>
+        </center>
+    </body>
+</html>
